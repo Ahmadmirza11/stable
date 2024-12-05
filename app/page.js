@@ -1,113 +1,366 @@
+"use client";
+import React from "react";
+import styles from "./page.module.css";
+import { Nav } from "./components/nav";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Footer } from "./components/footer";
 import Image from "next/image";
+import pic from "../public/Content.png";
+import pic1 from "../public/contant1.png";
+import pic2 from "../public/Frame1.png";
+import pic3 from "../public/Frame2.png";
+import pic4 from "../public/Frame3.png";
+import logo from "../public/Logo1.png";
+import logo1 from "../public/Logo3.png";
+import logo4 from "../public/Logo4.png";
+import log3 from "../public/Group185.png";
+import logoo1 from "../public/Frame20.png";
+import logoo11 from "../public/Frame11.png";
+import team from "../public/team1.png";
+import mobile from "../public/Group3.png";
+import download from "../public/AppStore.png";
+import download2 from "../public/GooglePlay.png";
+import gro   from '../public/Gro.png'
 
-export default function Home() {
+
+const popupVariants = { hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5 }, }, };
+
+const imageVariants = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+};
+const DynamicImage = ({ src, alt }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  if (inView) {
+    controls.start("visible");
+  }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={imageVariants}
+      className={styles.up}
+    >
+      {" "}
+      <Image className={styles.picenter} src={src} alt={alt} />{" "}
+    </motion.div>
+  );
+};
+
+const Page = () => {
+  const pageVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 1 },
+    exit: { opacity: 0, y: 20 },
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0, x: -40 },
+    visible: { opacity: 2, x: 0 },
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const controls = useAnimation(); const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 }); if (inView) { controls.start('visible'); }
+
+  return (
+    <div>
+      <Nav />
+
+      <motion.div
+        className={styles.pageContainer}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={pageVariants}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.div
+          className={styles.box1}
+          variants={textVariants}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          <div className={styles.txt}>
+            <p className={styles.txt1}>
+              All-in-One Accounting Firm Management Solution
+            </p>
+            <div>
+              <p className={styles.txt2}>
+                Streamline lead generation, client collaboration, tax
+                preparation, and team management—all from one powerful,
+                easy-to-use platform. Valix empowers your firm to save time,
+                boost productivity, and deliver exceptional client experiences.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.button}>
+            <motion.button
+              className={styles.btn1}
+              variants={buttonVariants}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
+              Get Started
+            </motion.button>
+            <motion.button
+              className={styles.btn2}
+              variants={buttonVariants}
+              transition={{ delay: 0.8, duration: 0.5 }}
+            >
+              See how it Works
+            </motion.button>
+          </div>
+
+          <div className={styles.rate}>
+            <div className={styles.rating}>
+              <p className={styles.txt3}>350+</p>
+              <p className={styles.txt4}>Over 500 business powered with us</p>
+            </div>
+            <div className={styles.rating2}>
+              <p className={styles.txt3}>4.8</p>
+              <p className={styles.txt4}>
+                Rating on Google PlayStore and AppStore
+              </p>
+            </div>
+          </div>
+        </motion.div>
+        <motion.div
+          className={styles.box2}
+          variants={pageVariants}
+          transition={{ delay: 1, duration: 0.5 }}
+        >
+          <Image className={styles.imag} src={pic} alt="#" />
+        </motion.div>
+      </motion.div>
+
+      <div>
+        <div className={styles.box3}>
+          <div className={styles.txtcenter1}>
+            <div className={styles.txtcenter}>
+              <h2 className={styles.txt5}>
+                Your team, clients, work, data. Together in one place.
+              </h2>
+            </div>
+          </div>
+
+          <div className={styles.txtcenter1}>
+            <div className={styles.grey}>
+              <div className={styles.pic1}>
+                {" "}
+                <DynamicImage src={pic1} alt="" />{" "}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.features}>
+          <p className={styles.txt6}>valix features</p>
+          <div className={styles.features1}>
+            <button className={styles.bttn}>Client Features</button>
+            <button className={styles.bttn}>Admin Features</button>
+            <button className={styles.bttn}>Account Manager</button>
+            <button className={styles.bttn}>Compliance</button>
+            <button className={styles.bttn}>Firm Setup</button>
+            <button className={styles.bttn}>Integration</button>
+          </div>
+
+          <div className={styles.card}>
+            <div className={styles.card1}>
+              <div className={styles.up}>
+                <Image className={styles.picenter} src={pic2} alt=""></Image>
+              </div>
+
+              <div className={styles.down}>
+                <p className={styles.cardcenter1}>Lead Capture& Tracking</p>
+                <p className={styles.cardcenter}>
+                  Capture client leads through the lead generation page.
+                  Automatically save inquiries and follow-up actions.Track lead
+                  conversion rates and progress.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.card1}>
+              <div className={styles.up}>
+                <Image className={styles.picenter} src={pic4} alt=""></Image>
+              </div>
+
+              <div className={styles.down}>
+                <p className={styles.cardcenter1}>Client Management</p>
+                <p className={styles.cardcenter}>
+                  Capture client leads through the lead generation page.
+                  Automatically save inquiries and follow-up actions.Track lead
+                  conversion rates and progress.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.card1}>
+              <div className={styles.up}>
+                <Image className={styles.picenter} src={pic3} alt=""></Image>
+              </div>
+
+              <div className={styles.down}>
+                <p className={styles.cardcenter1}>
+                  Document Submition& Selection
+                </p>
+                <p className={styles.cardcenter}>
+                  Capture client leads through the lead generation page.
+                  Automatically save inquiries and follow-up actions.Track lead
+                  conversion rates and progress.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.card1}>
+              <div className={styles.up}>
+                <Image className={styles.picenter} src={pic4} alt=""></Image>
+              </div>
+
+              <div className={styles.down}>
+                <p className={styles.cardcenter1}>Lead Tracking</p>
+                <p className={styles.cardcenter}>
+                  Capture client leads through the lead generation page.
+                  Automatically save inquiries and follow-up actions.Track lead
+                  conversion rates and progress.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className={styles.sponser}>
+        <p className={styles.oursponser}>Our Sponsores</p>
+        <p className={styles.oursponsers}>
+          Proudly Partnering with Industry Leaders
+        </p>
+
+        <div className={styles.upglam}>
+          <Image className={styles.logo} src={logo1} alt=""></Image>
+          <Image className={styles.logo} src={log3} alt=""></Image>
+          <Image className={styles.logo} src={logo} alt=""></Image>
+          <Image className={styles.logo} src={logo4} alt=""></Image>
+        </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <div className={styles.parent}>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+      <div className={styles.box5}>
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={popupVariants}
+        className={styles.cardcentermain}
+      >
+        <p className={styles.cardcenter3}>
+          Easily customizable & manage your team
+        </p>
+        <p className={styles.cardcenter2}>
+          Clients have full visibility into the status of their requests,
+          can easily communicate with their account managers, and receive
+          updates at every stage, fostering trust and transparency in your
+          accounting services
+        </p>
+        <button className={styles.cardbutton}>Get Free Consultancy</button>
+      </motion.div>
+    </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+
+        <div className={styles.box6}>
+          <Image className={styles.logoo1} src={logoo1} alt=""></Image>
+        </div>
       </div>
-    </main>
+
+      <div className={styles.parent}>
+        <div className={styles.box6}>
+          <Image className={styles.logoo1} src={logoo11} alt=""></Image>
+        </div>
+
+        <motion.div   ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={popupVariants} className={styles.box5}>
+          
+          <div className={styles.cardcentermain}>
+            <p className={styles.cardcenter3}>
+              manage your reports and analytics
+            </p>
+            <p className={styles.cardcenter2}>
+              Users receive instant push notifications on their mobile device or
+              web alerts when there are important updates, such as a draft of
+              their tax return being ready for review, a payment reminder, or a
+              message from their account manager
+            </p>
+            <button className={styles.cardbutton}>Get Started</button>
+          </div>
+        </motion.div>
+      </div>
+
+      <div className={styles.customer}>
+        <div className={styles.customer1}>
+          <p className={styles.custom1}>SEE WHAT SAYS OUR HAPPY CLIENTS</p>
+          <p className={styles.costom2}>Our happy customers</p>
+        </div>
+        <div className={styles.textalign}>
+          <div className={styles.space}>
+            <p className={styles.experiance1}>
+              Great Experience!! Michael has made the whole process easy from
+              the planning stage to the final plant going in. Steve & his crew
+              did a great job. I felt like Lavish Gardens really listened to
+              what I wanted, gave me ideas, and helped me decide how to make my
+              backyard a place to relax and enjoy the view.  
+            </p>
+            <Image className={styles.size} src={team} alt=""></Image>
+          </div>
+          <div className={styles.space}>
+            <Image className={styles.size2} src={team} alt=""></Image>
+            <p className={styles.experiance2}>
+              Great Experience!! Michael has made the whole process easy from
+              the planning stage to the final plant going in. Steve & his crew
+              did a great job. I felt like Lavish Gardens really listened to
+              what I wanted, gave me ideas, and helped me decide how to make my
+              backyard a place to relax and enjoy the view.  
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.mobile}>
+        <div className={styles.mobile1}>
+          <Image className={styles.mobilipic} src={mobile} alt=""></Image>
+        </div>
+        <div className={styles.mobile2}>
+          <div className={styles.downloadcenter}>
+            <p className={styles.mobilip1}>Download Our Mobile App</p>
+            <p className={styles.mobilip2}>
+              Sed luctus nibh at consectetur tempor. Proin et ipsum tincidunt,
+              maximus turpis id, mollis lacus. Maecenas nec risus a urna
+              sollicitudin aliquet. Maecenas pretium tristique sapien
+            </p>
+          </div>
+          <div className={styles.download}>
+            <Image className={styles.appstore} src={download} alt=""></Image>
+            <Image className={styles.appstore} src={download2} alt=""></Image>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.car}>
+        <Image className={styles.ig} src={gro}></Image>
+      </div>
+
+      <Footer />
+    </div>
   );
-}
+};
+
+export default Page;

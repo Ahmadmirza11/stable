@@ -1,0 +1,221 @@
+.box {
+  width: 100%;
+  height: 30vh;
+  margin-top: 65px;
+  background-color:#F4F8F8;
+  ;
+}
+.price {
+  font-weight: 700;
+  font-size: xx-large;
+  margin-top: 20px;
+  padding: 20px;
+}
+.pricing {
+  margin-top: 20px;
+  font-size: xx-large;
+  margin-top: 10px;
+  padding: 20px;
+}
+.card {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.practice {
+  margin-top: 33px;
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.2px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.practicebold {
+  max-width: 496px;
+  font-family: Plus Jakarta Sans;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 43.2px;
+  text-align: center;
+  padding: 22px;
+}
+.saved {
+  max-width: 630px;
+  font-family: Plus Jakarta Sans;
+  font-size: 20px;
+  line-height: 28.8px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.card1 {
+  background-color:#F4F8F8;
+  align-items: center;
+  width: 420px;
+  height: 680px;
+  border-radius: 19px;
+}
+.paid1 {
+  padding: 15px;
+  font-family: Plus Jakarta Sans;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 55.8px;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+.paid2 {
+  padding-top: 10px;
+  font-family: Plus Jakarta Sans;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 22.56px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.paid3 {
+  margin-top: 10px;
+  font-family: Plus Jakarta Sans;
+  font-size: 14.13px;
+  font-weight: 600;
+  line-height: 20.55px;
+  letter-spacing: 0.005em;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.paid4 {
+  width: 327.53px;
+  height: 42px;
+  margin: 10px;
+  margin-left: 10px;
+  font-family: Plus Jakarta Sans;
+  font-size: 14.13px;
+  font-weight: 400;
+  line-height: 20.55px;
+  letter-spacing: 0.005em;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.order {
+  margin: 30px;
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 20px;
+  padding: 22px;
+  border-bottom: 1px solid;
+}
+.pakage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+.button {
+  width: 200px;
+  height: 52px;
+  background-color: #0f525b;
+  border-radius: 33px;
+  margin-left: 19px;
+  color: rgb(237, 234, 234);
+  font-size: 20px;
+  font-weight: bold;
+}
+.wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 72px;
+  gap: 19px;
+  justify-content: space-evenly;
+}
+.block {
+  width: 435.16px;
+
+  padding: 15px;
+  padding-left: 18px;
+  background-color: #ffffff;
+  text-align: justify;
+  border-radius: 29px;
+}
+.text1 {
+  font-size: 29px;
+  font-weight: bold;
+  padding-top: 8px;
+}
+.text2 {
+  font-size: large;
+  padding-top: 10px;
+}
+.center {
+  text-align: center;
+  margin-top: 22px;
+}
+.h2 {
+  font-size: 43px;
+  font-weight: bolder;
+  padding-top: 22px;
+}
+.box2 {
+  width: 100%;
+  height: auto;
+  background-color: #F4F8F8;
+  padding-bottom: 44px;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.cent{
+  width: 90%;
+  height: 80%;
+}
+
+@media (max-width: 768px) {
+  .price,
+  .pricing,
+  .practicebold,
+  .paid1 {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  .block,
+  .card1 {
+    width: 100%;
+    margin-top: 30px;
+  }
+  .wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+  .button {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    height: 40px;
+  }
+}
+@media (max-width: 480px) {
+  .price,
+  .pricing,
+  .practicebold,
+  .paid1 {
+    font-size: clamp(0.875rem, 2vw, 1.25rem);
+  }
+  .button {
+    font-size: 1rem;
+    height: 35px;
+  }
+}
