@@ -16,7 +16,7 @@ import logo1 from "../public/Logo3.png";
 import logo4 from "../public/Logo4.png";
 import log3 from "../public/Group185.png";
 import logoo1 from "../public/Frame20.png";
-import logoo11 from "../public/Frame11.png";
+import logoo11 from "../public/frame11.png";
 import team from "../public/team1.png";
 import mobile from "../public/Group3.png";
 import download from "../public/AppStore.png";
