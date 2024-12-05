@@ -355,7 +355,7 @@ const Page = () => {
       </div>
 
       <div className={styles.car}>
-        <Image className={styles.ig} src={gro}></Image>
+        <Image className={styles.ig} src={gro} alt=""></Image>
       </div>
 
       <Footer />
